@@ -3,5 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/passenger-algorithms/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/passenger-algorithms/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-data/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-data/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-java/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-java/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/passenger-test/src/main/resources" charset="UTF-8" />
   </component>
 </project>

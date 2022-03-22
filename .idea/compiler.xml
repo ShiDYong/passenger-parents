@@ -6,7 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="passenger-test" />
+        <module name="passenger-spring" />
         <module name="passenger-algorithms" />
+        <module name="passenger-data" />
+        <module name="passenger-java" />
       </profile>
     </annotationProcessing>
   </component>
