@@ -12,6 +12,12 @@ import java.util.Map;
  **/
 public class TwoSum {
     public static void main(String[] args) {
+        int x = 1;
+        int y = 2;
+        int z = 0;
+        z = x/y;
+        System.out.println("z = " + z);
+
         int[] arr = {2, 3, 3, 4};
         int a = 6;
         int[] ints = twoSum02(arr, a);
