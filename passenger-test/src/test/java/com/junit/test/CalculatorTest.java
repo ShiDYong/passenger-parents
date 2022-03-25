@@ -1,4 +1,4 @@
-package com.junit;
+package com.junit.test;
 
 import com.mason.junit.Calculator;
 import org.junit.jupiter.api.DisplayName;

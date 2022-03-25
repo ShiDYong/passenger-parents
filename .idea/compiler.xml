@@ -14,6 +14,6 @@
         <module name="passenger-java" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="16" />
   </component>
 </project>
