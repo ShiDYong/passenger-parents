@@ -34,7 +34,7 @@ public class ArrayBagTest02 {
 
         //----------------------------------------------------------------------
 
-        // A bag that will be full
+        // A bag that will be full,now let's testing
         aBag = new ArrayBag<String>(7);
         System.out.println("\nA new empty bag:");
 
