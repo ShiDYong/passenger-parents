@@ -1,4 +1,8 @@
-package com.mason.ATD;
+package com.mason.ATD.chapter01;
+
+import com.mason.ATD.chapter01.Bag;
+import com.mason.ATD.chapter01.BagInterface;
+import com.mason.ATD.chapter01.Coin;
 
 /**
  * 扑满的类

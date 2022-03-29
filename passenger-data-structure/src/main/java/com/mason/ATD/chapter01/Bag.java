@@ -1,4 +1,6 @@
-package com.mason.ATD;
+package com.mason.ATD.chapter01;
+
+import com.mason.ATD.chapter01.BagInterface;
 
 /**
  * BagInterface的实现类
@@ -6,7 +8,7 @@ package com.mason.ATD;
  * @author ShiYong
  * @create 2022-03-28 14:57
  **/
-public class Bag implements BagInterface{
+public class Bag implements BagInterface {
 
     @Override
     public int getCurrentSize() {

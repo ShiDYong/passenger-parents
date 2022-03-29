@@ -1,4 +1,4 @@
-package com.mason.ATD;
+package com.mason.ATD.chapter01;
 
 /**
  * 实体类

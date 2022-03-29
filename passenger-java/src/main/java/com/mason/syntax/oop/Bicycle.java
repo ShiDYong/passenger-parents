@@ -1,6 +1,5 @@
 package com.mason.syntax.oop;
 
-import com.sun.javaws.security.JavaWebStartSecurity;
 
 import java.sql.Statement;
 

@@ -1,4 +1,4 @@
-package com.mason.ATD;
+package com.mason.ATD.chapter01;
 
 /**
  * An interface that describe the operations of a bag of objects
@@ -25,10 +25,10 @@ public interface BagInterface<T> {
     /**
      * Adds a new entry to that bag.
      *
-     * @param entry The object to be added as a new entry.
+     * @param newEntry The object to be added as a new entry.
      * @return True if the addition is successful,or false if not.
      */
-    public boolean add(T entry);
+    public boolean add(T newEntry);
 
     /**
      *  Removes one unspecified entry from this bag. if possible.

@@ -1,4 +1,4 @@
-package com.mason.ATD;
+package com.mason.ATD.chapter01;
 
 /**
  * 商品详情信息类
