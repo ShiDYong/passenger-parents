@@ -12,7 +12,7 @@
         <module>passenger-algorithms</module>
         <module>passenger-java</module>
         <module>passenger-spring</module>
-        <module>passenger-data</module>
+        <module>passenger-data-structure</module>
         <module>passenger-test</module>
     </modules>
     <name>passenger-parents</name>
@@ -21,8 +21,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
     </properties>
     <!-- 依赖声明 -->
@@ -60,6 +60,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

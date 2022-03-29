@@ -10,8 +10,8 @@
         <module name="passenger-test" />
         <module name="passenger-spring" />
         <module name="passenger-algorithms" />
-        <module name="passenger-data" />
         <module name="passenger-java" />
+        <module name="passenger-data-structure" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="16" />
