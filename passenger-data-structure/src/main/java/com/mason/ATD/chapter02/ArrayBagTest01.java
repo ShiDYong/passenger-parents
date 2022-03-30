@@ -1,8 +1,6 @@
 package com.mason.ATD.chapter02;
 
 
-import java.util.zip.DeflaterInputStream;
-
 /**
  * 测试ArrayBag类的核心方法的程序
  * A test of the constructors and the methods
@@ -15,12 +13,12 @@ import java.util.zip.DeflaterInputStream;
 public class ArrayBagTest01 {
 
     public static void main(String[] args) {
-        ArrayBag<String> bBag = new ArrayBag<>();
+        ArrayBag02<String> bBag = new ArrayBag02<>();
         displayBag(bBag);
 
         System.out.println("Test an initially empty bag with " + "sufficient capacity:");
         //不指定初始化数组容量大小
-        BagInterface<String> aBag = new ArrayBag<>();
+        BagInterface<String> aBag = new ArrayBag02<>();
         String[] contentsOfBag1 = {"A", "A", "B", "A", "C", "A"};
         testAdd(aBag, contentsOfBag1);
 
@@ -28,7 +26,7 @@ public class ArrayBagTest01 {
         // Filling an initially empty bag to capacity
         System.out.println("InTesting an initially empty bag that " + " wi11 be filled to capacity: ");
         //初始化指定数组容量大小
-        aBag = new ArrayBag<>(7);
+        aBag = new ArrayBag02<>(7);
         String[] contentsOfBag2={"A","B","A","C","B","C","D","another string"};
         testAdd(aBag,contentsOfBag2);
 

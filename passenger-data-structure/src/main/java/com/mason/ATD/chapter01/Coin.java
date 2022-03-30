@@ -1,26 +1,33 @@
 package com.mason.ATD.chapter01;
 
 /**
- * 实体类
+ * 测试类
  *
  * @author ShiYong
- * @create 2022-03-28 15:46
+ * @create 2022-03-30 13:43
  **/
 public class Coin {
+    private int name;
     private int price;
-    private int year;
 
-    public int getPrice() {
+    public Coin(int name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public int getCoinName() {
+        return name;
+    }
+
+    public int getValue() {
         return price;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public Coin(int price, int year) {
-
-        this.price = price;
-        this.year = year;
+    @Override
+    public String toString() {
+        return "Coin{" +
+                "name=" + name +
+                ", price=" + price +
+                '}';
     }
 }

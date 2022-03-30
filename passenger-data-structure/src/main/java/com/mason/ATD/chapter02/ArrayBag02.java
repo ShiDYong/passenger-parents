@@ -1,8 +1,6 @@
 package com.mason.ATD.chapter02;
 
 
-import java.util.Arrays;
-
 /**
  * 类AarrayBag的框架
  * A class of bags whose entries are stored in
@@ -11,7 +9,7 @@ import java.util.Arrays;
  * @author ShiYong
  * @create 2022-03-29 14:10
  **/
-public class ArrayBag<T> implements BagInterface<T> {
+public class ArrayBag02<T> implements BagInterface<T> {
 
     private boolean integrityOk;
     //数组的最大容量，防止出现实例化超过这个容量出现内存不足OOM的情况
@@ -28,7 +26,7 @@ public class ArrayBag<T> implements BagInterface<T> {
     /**
      * Create an empty bag whose initial capacity is 25
      */
-    public ArrayBag() {
+    public ArrayBag02() {
         //会调用下面含参数的构造器
         this(DEFAULT_CAPACITY);
     }
@@ -38,7 +36,7 @@ public class ArrayBag<T> implements BagInterface<T> {
      *
      * @param desiredCapacity desiredCapacity The integer capacity desired.
      */
-    public ArrayBag(int desiredCapacity) {
+    public ArrayBag02(int desiredCapacity) {
         //设置表示位
         integrityOk = false;
 
@@ -74,7 +72,7 @@ public class ArrayBag<T> implements BagInterface<T> {
         boolean result = true;
         //judge whether bag is full
         if (isArrayFull()) {
-            return false;
+            result = false;
         } else {
             // Assertion: result is true here
             bag[numberOfEntries] = newEntry;
