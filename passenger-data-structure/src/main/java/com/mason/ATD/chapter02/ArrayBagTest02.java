@@ -32,7 +32,7 @@ public class ArrayBagTest02 {
         //----------------------------------------------------------------------
 
         // A bag that will be full
-        aBag = new ArrayBag02<String>(7);
+        aBag = new ArrayBag<String>(7);
         System.out.println("\nA new empty bag:");
 
         // Tests on an empty bag

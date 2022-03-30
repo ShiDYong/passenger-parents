@@ -14,6 +14,8 @@
         <module name="passenger-data-structure" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="16" />
+    <bytecodeTargetLevel target="16">
+      <module name="passenger-data" target="11.0.11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
