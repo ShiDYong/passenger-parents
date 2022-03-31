@@ -1,5 +1,7 @@
 package com.mason.ATD.chapter02;
 
+import com.mason.ATD.chapter01.ArrayBag;
+
 /**
  * ArrayBag类的测试
  * A test of the methods isEmpty,getCurrentSize,getFrequencyOf,and contains
@@ -32,7 +34,7 @@ public class ArrayBagTest02 {
         //----------------------------------------------------------------------
 
         // A bag that will be full
-        aBag = new ArrayBag<String>(7);
+        aBag = new ArrayBag02<>(7);
         System.out.println("\nA new empty bag:");
 
         // Tests on an empty bag

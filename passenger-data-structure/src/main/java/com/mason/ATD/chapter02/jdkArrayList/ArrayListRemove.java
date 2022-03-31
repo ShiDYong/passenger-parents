@@ -22,7 +22,12 @@ public class ArrayListRemove {
         System.out.println("removeElement = " + removeElement);
 
         System.out.println(sites);
-
+        System.out.println(".........................................删除arraylist所有满足特定条件的数组元素.................................................................");
+        // 删除名称中带有 Tao 的元素
+        sites.add("TaoTe");
+        sites.add("TaoDong");
+        sites.removeIf(e -> e.contains("Tao"));;
+        System.out.println("删除后的 ArrayList: " + sites);
 
         System.out.println("....................................删除所有的元素..................................");
         // 创建一个数组
@@ -54,5 +59,8 @@ public class ArrayListRemove {
         // 删除所有元素
         sites.clear();
         System.out.println("所有 clear() 方法后: " + sites03);
+
+
+
     }
 }
