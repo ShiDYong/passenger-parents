@@ -1,4 +1,6 @@
-package com.mason.ATD.chapter04.base;
+package com.mason.ATD.chapter04.single;
+
+import com.mason.ATD.chapter04.base.AbstractList;
 
 /**
  * 链表的实现
@@ -6,7 +8,7 @@ package com.mason.ATD.chapter04.base;
  * @author ShiYong
  * @create 2022-03-31 17:16
  **/
-public class LinkedList<E> extends AbstractList<E> {
+public class DoubleLinkedList<E> extends AbstractList<E> {
     private Node<E> first;
     private Node<E> last;
 
@@ -178,4 +180,5 @@ public class LinkedList<E> extends AbstractList<E> {
         string.append("]");
         return string.toString();
     }
+
 }
