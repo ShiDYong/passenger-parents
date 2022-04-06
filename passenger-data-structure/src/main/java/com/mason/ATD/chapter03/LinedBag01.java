@@ -207,7 +207,7 @@ public final class LinedBag01<T> implements BagInterface<T> {
         //        }
 
         // return getReferenceTo(anEntry).equals(anEntry); 因为该方法返回的是一个entry如归再用的话
-        //闲的非常重复不必要，所以判断该返回的实体是否为null即可
+        //显的非常重复不必要，所以判断该返回的实体是否为null即可
         return getReferenceTo(anEntry) != null;
     }
 
