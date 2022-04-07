@@ -77,7 +77,7 @@ public class ArrayStack<T> implements StackInterface<T> {
             int newLength = stack.length << 1;
             checkCapacity(newLength);
             //调用native方法对数组元素进行复制
-            Arrays.copyOf(stack, newLength);
+            stack = Arrays.copyOf(stack, newLength);
         }
 
     }
@@ -119,7 +119,7 @@ public class ArrayStack<T> implements StackInterface<T> {
 
     @Override
     public void clear() {
-        while (isEmpty())
+        while (!isEmpty())
             pop();
 
        /* while (topIndex >-1){
