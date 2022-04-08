@@ -1,10 +1,4 @@
-package com.mason.array;
-
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+package com.mason.leetcode.array;
 
 /**
  * 删除有序数组中的重复项

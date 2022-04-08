@@ -1,4 +1,4 @@
-package com.mason.strings;
+package com.mason.leetcode.strings;
 
 /**
  * 最长公共前缀

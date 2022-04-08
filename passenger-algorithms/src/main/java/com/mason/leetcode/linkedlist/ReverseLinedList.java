@@ -1,4 +1,4 @@
-package com.mason.ATD.leetcode.linkedlist;
+package com.mason.leetcode.linkedlist;
 
 /**
  * 反转单链表

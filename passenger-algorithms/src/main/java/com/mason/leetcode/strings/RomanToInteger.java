@@ -1,4 +1,4 @@
-package com.mason.strings;
+package com.mason.leetcode.strings;
 
 import java.util.HashMap;
 import java.util.Map;

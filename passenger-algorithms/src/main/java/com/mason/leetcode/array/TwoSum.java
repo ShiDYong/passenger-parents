@@ -1,4 +1,4 @@
-package com.mason.array;
+package com.mason.leetcode.array;
 
 import java.util.HashMap;
 import java.util.Map;

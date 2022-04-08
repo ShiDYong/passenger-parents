@@ -1,4 +1,4 @@
-package com.mason.ATD.leetcode.linkedlist;
+package com.mason.leetcode.linkedlist;
 
 import com.mason.ATD.chapter04.base.List;
 

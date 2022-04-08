@@ -1,6 +1,4 @@
-package com.mason.orders;
-
-import java.util.ArrayList;
+package com.mason.leetcode.orders;
 
 /**
  * 冒泡算法的实现

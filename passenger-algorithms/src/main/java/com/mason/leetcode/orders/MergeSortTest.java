@@ -1,4 +1,4 @@
-package com.mason.orders;
+package com.mason.leetcode.orders;
 
 /**
  * 归并排序算法的实现

@@ -1,6 +1,4 @@
-package com.mason.ATD.leetcode.linkedlist;
-
-import org.w3c.dom.Node;
+package com.mason.leetcode.linkedlist;
 
 /**
  * 删除链表中的节点练习

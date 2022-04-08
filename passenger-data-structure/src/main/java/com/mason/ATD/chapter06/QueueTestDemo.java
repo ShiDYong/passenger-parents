@@ -1,5 +1,7 @@
 package com.mason.ATD.chapter06;
 
+import java.util.AbstractQueue;
+
 /**
  * 队列的实现类的测试方法
  *
@@ -35,6 +37,8 @@ public class QueueTestDemo {
         System.out.println("获取队列的头结点："+front1);
         System.out.println(arrayQueue.isEmpty());
         arrayQueue.clear();
+
+
 
 
 
