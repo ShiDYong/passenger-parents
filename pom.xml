@@ -11,7 +11,6 @@
     <modules>
         <module>passenger-algorithms</module>
         <module>passenger-java</module>
-        <module>passenger-spring</module>
         <module>passenger-data-structure</module>
         <module>passenger-test</module>
     </modules>
