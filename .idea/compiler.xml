@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="passenger-test" />
-        <module name="passenger-spring" />
         <module name="passenger-algorithms" />
         <module name="passenger-java" />
         <module name="passenger-data-structure" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="16" />
+    <bytecodeTargetLevel target="16">
+      <module name="passenger-data" target="11.0.11" />
+      <module name="passenger-spring" target="11.0.11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

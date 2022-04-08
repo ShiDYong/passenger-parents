@@ -1,7 +1,6 @@
 package com.mason.ATD.chapter02;
 
-import javax.lang.model.SourceVersion;
-import java.util.concurrent.TimeoutException;
+import com.mason.ATD.chapter01.ArrayBag;
 
 /**
  * ArrayBag类的测试
@@ -14,7 +13,7 @@ import java.util.concurrent.TimeoutException;
 public class ArrayBagTest02 {
     public static void main(String[] args) {
         // A bag that is not full
-        BagInterface<String> aBag = new ArrayBag<>();
+        BagInterface<String> aBag = new ArrayBag02<>();
 
         // Tests on an empty bag
         testIsEmpty(aBag, true);
@@ -35,7 +34,7 @@ public class ArrayBagTest02 {
         //----------------------------------------------------------------------
 
         // A bag that will be full
-        aBag = new ArrayBag<String>(7);
+        aBag = new ArrayBag02<>(7);
         System.out.println("\nA new empty bag:");
 
         // Tests on an empty bag
