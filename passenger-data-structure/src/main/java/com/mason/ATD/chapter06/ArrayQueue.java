@@ -5,7 +5,7 @@ import java.util.EmptyStackException;
 
 /**
  * 基于循环数组实现的队列
- * A class that implements a queue of objects bu using an array.
+ * A class that implements a queue of objects by using an array.
  *
  * @author ShiYong
  * @create 2022-04-08 11:55
@@ -104,7 +104,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
         else {
             T front = queue[frontIndex];
             queue[frontIndex] = null;
-            // frontIndex++;因为用的是循环队列所以要用下面的取模的方式
+            // frontIndex++;因为用的是循环队列所以要用下面的取余的方式
             frontIndex = (frontIndex + 1) % queue.length;
             return front;
         }
@@ -120,7 +120,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     public T getFront() {
         checkIntegrity();
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new EmptyQueueException();
         else
             return queue[frontIndex];
     }

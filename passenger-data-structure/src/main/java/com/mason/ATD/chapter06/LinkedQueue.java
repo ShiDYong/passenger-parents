@@ -69,7 +69,7 @@ public class LinkedQueue<T> implements QueueInterface<T> {
     @Override
     public T getFront() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new EmptyQueueException();
         else
             return firstNode.getData();
     }
@@ -121,7 +121,7 @@ public class LinkedQueue<T> implements QueueInterface<T> {
             return next;
         }
 
-        public void setNextNode(Node next) {
+        public void setNextNode(Node  next) {
             this.next = next;
         }
     }

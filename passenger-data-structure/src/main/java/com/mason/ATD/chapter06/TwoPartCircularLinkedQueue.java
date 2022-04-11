@@ -34,7 +34,8 @@ public class TwoPartCircularLinkedQueue<T> implements QueueInterface<T> {
             freeNode.setNextNode(newNode);
 
         }
-        freeNode.getNextNode();
+        //freeNode要指向下一个结点
+        freeNode = freeNode.getNextNode();
 
     }
 
@@ -45,7 +46,7 @@ public class TwoPartCircularLinkedQueue<T> implements QueueInterface<T> {
     @Override
     public T dequeue() {
         T front = getFront();
-        queueNode.setNextNode(null);
+        queueNode.setData(null);
         queueNode = queueNode.getNextNode();
         return front;
     }
@@ -53,7 +54,7 @@ public class TwoPartCircularLinkedQueue<T> implements QueueInterface<T> {
     @Override
     public T getFront() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new EmptyQueueException();
         else
             return queueNode.getData();
     }
