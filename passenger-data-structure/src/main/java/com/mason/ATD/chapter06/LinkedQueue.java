@@ -1,6 +1,7 @@
 package com.mason.ATD.chapter06;
 
 import java.util.EmptyStackException;
+import java.util.PriorityQueue;
 
 /**
  * ADT队列链式实现的框架
@@ -59,6 +60,7 @@ public class LinkedQueue<T> implements QueueInterface<T> {
             lastNode = null;
         return front;
     }
+
 
     /**
      * Removes the entry at the front of this queue.
