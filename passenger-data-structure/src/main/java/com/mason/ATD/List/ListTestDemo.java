@@ -41,7 +41,7 @@ public class ListTestDemo {
         System.out.println(arrayList.getEntry(2));
         System.out.println(arrayList.replace(2, "武汉市"));
         //测试是否包含元素
-        System.out.println(arrayList.contain("武汉市"));
+        System.out.println(arrayList.contain("天津"));
 
         //arrayList.remove(2);
 

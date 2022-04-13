@@ -74,6 +74,8 @@ public class AList<T> implements ListInterface<T> {
          * 不足：：调用另一个方法，花费了更多的运行时间。另外，第二个 add 方法必须决定当被第一个 add
          * 方法调用时它不调用 makeRoom。
          */
+        //通常数组的下标都是从0开始的，这是因为初始化的为0，比较方便，但是为了方便阅读只要在数组插入的
+        //的时候把数据放在第一位，0位就属于空的状态，方便阅读也是可以的。
         add(numberOfEntries + 1, newEntry);
 
     }
@@ -114,7 +116,11 @@ public class AList<T> implements ListInterface<T> {
         //索引在numberOfEntries和1之间，需要发生数据挪动
         if (givenPosition <= numberOfEntries)
             makeRoom(givenPosition);
-
+        /**
+         * 为什么要挪动数组，保持数据的连续性，因为添加或者删除中间不挪动数组的话的
+         * 就会导致中间的有一个项是Null，那么就要用其它的变量去表示这个空的项，会带来很多的麻烦的，
+         * 所以要保持数组的项的连续性
+         */
         list[givenPosition] = newEntry;
         numberOfEntries++;
         ensureCapacity();
