@@ -236,6 +236,38 @@ public final class LinedBag01<T> implements BagInterface<T> {
         return result;
     }
 
+
+    /**
+     * 通过递归实现对链表结点的数据的访问
+     *
+     *
+     * @param nodeOne
+     */
+    public void display(Node nodeOne) {
+        display(firstNode);
+
+    }
+
+    /**
+     * 当写一个方法递归处理结点链表时，可以通过以下工作：
+     * 1.使用链表指向链表中首结点的引用作为方法的参数；
+     * 2.处理首结点，然后处理链表中的其余结点；
+     * 3.当参数是null时停止
+     * @param nodeOne
+     */
+    private void displayChain(Node nodeOne) {
+        if (nodeOne != null) {
+            //正常顺序显示链表数据
+            System.out.println(nodeOne.getData());
+            display(nodeOne.getNextNode());
+            //若打印语句如下面所示则是反向显示链表的链接
+            //相比于递归方式以反序遍历结点链表，比起采用迭代实现要简单些
+            //System.out.println(nodeOne.getData());
+        }
+
+
+    }
+
     /**
      * 私有内部类Node,外部类可以按名直接访问内部类的
      * 数据域，而不需要通过方法或者赋值方法；因为Node是一个内部类
@@ -255,6 +287,14 @@ public final class LinedBag01<T> implements BagInterface<T> {
         private Node(T dataPortion, Node nextNode) {
             data = dataPortion;
             next = nextNode;
+        }
+
+        private T getData() {
+            return data;
+        }
+
+        private Node getNextNode() {
+            return next;
         }
     }
 }

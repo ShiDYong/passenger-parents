@@ -14,7 +14,7 @@ import java.util.SimpleTimeZone;
  **/
 public class LinkedBag01Test {
     public static void main(String[] args) {
-        BagInterface<String> myList = new LinedBag01<>();
+        LinedBag01<String> myList = new LinedBag01<>();
         myList.add("Google");
         myList.add("AMAZON");
         myList.add("APPLE");
@@ -27,7 +27,7 @@ public class LinkedBag01Test {
         System.out.println("empty = " + empty);
         boolean apple = myList.remove("APPLE");
         System.out.println("apple = " + apple);
-        myList.clear();
+//        myList.clear();
 
 
 
