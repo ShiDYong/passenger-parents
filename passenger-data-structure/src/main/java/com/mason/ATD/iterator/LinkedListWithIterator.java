@@ -1,36 +1,31 @@
-package com.mason.ATD.List;
+package com.mason.ATD.iterator;
 
+import com.mason.ATD.List.LList;
 import org.w3c.dom.Node;
 
 import java.util.Iterator;
-import java.util.ListIterator;
 
 /**
- * 通过头引用和尾引用实现的链表
- * 当链表有头引用和尾引用时以下叙述成立：
- * 在空链表中添加结点是特例。
- * 在链表表尾添加结点是特例,但不需要遍历。
- * 删除链表的最后结点是特例。除指向首结点的引用外,维护指向链表中最后结点的引用,当在链表表尾添加结点时可以消除遍历。
- * 所以,当链表有头引用和尾引用时,在线性表表尾的添加,比仅有头引用时更快。
- * 因此，我们使用有头引用和尾引用的链表来实现 ADT 线性表。
+ * 内部类迭代器的实现
  *
  * @author ShiYong
- * @create 2022-04-14 15:02
+ * @create 2022-04-14 17:49
  **/
-public class LListWithTail<T> implements ListInterface<T> {
-    private Node firstNode; //头结点
-    private Node lastNode; //尾引用
-    private int numberOfEntries; //结点的个数
+public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T> {
 
-    public LListWithTail() {
+    private Node firstNode;
+    private int numberOfEntries;
+
+
+    public LinkedListWithIterator() {
         initializeDataFIelds();
     }
 
     private void initializeDataFIelds() {
         firstNode = null;
-        lastNode = null;
         numberOfEntries = 0;
     }
+
 
     /**
      * Adds a new entry to the end of this list.
@@ -45,52 +40,38 @@ public class LListWithTail<T> implements ListInterface<T> {
         //判断是否当前链表是否为空
         if (isEmpty()) {
             firstNode = newNode;
-        } else
-            // {
-            //添加到链表的尾部，使用尾引用好处就是不用遍历尾结点
-            //Node lastNode = getNodeAt(numberOfEntries);
+        } else {
+            //添加到链表的尾部
+            Node lastNode = getNodeAt(numberOfEntries);
             lastNode.setNextNode(newNode);
 
-        //可以使用以上方法替代
-        //add(numberOfEntries + 1, newEntry);
-        // }
-        //将新结点指向尾结点
-        lastNode = newNode;
+            //可以使用以上方法替代
+            //add(numberOfEntries + 1, newEntry);
+        }
         numberOfEntries++;
 
     }
 
+    /**
+     * 总结：当链表仅有头引用时,以下叙述成立:
+     * 在链表表头添加结点是特例。
+     * 从链表中删除首结点是特例。
+     * 在链表表尾添加或删除结点需要遍历整个链表。
+     * 在链表中添加结点最多需要改变两个引用。
+     * 从链表中删除结点最多需要改变两个引用。
+     */
     /**
      * 通过指定索引获取链表的结点
      *
      * @param givenPosition
      * @return
      */
-//    private Node getNodeAt(int givenPosition) {
-//        Node currentNode = firstNode;
-//        checkIndex(givenPosition);
-//        for (int index = 1; index < givenPosition; index++)
-//            currentNode = currentNode.getNextNode();
-//
-//        return currentNode;
-//    }
-
-    /**
-     * 根据添加了尾引用进行一定的修改
-     * @param givenPosition
-     * @return
-     */
     private Node getNodeAt(int givenPosition) {
-        assert (firstNode != null) && (1 <= givenPosition) && (givenPosition <= numberOfEntries);
         Node currentNode = firstNode;
-        if (givenPosition == numberOfEntries)
-            currentNode = lastNode;
-        else if (givenPosition > 1) // Traverse the chain to locate the desired node
-        {
-            for (int counter = 1; counter < givenPosition; counter++)
-                currentNode = currentNode.getNextNode();
-        } // end if
-        assert currentNode != null;
+        checkIndex(givenPosition);
+        for (int index = 1; index < givenPosition; index++)
+            currentNode = currentNode.getNextNode();
+
         return currentNode;
     }
 
@@ -108,19 +89,11 @@ public class LListWithTail<T> implements ListInterface<T> {
     public void add(int givenPosition, T newEntry) {
         checkIndex(givenPosition);
         Node newNode = new Node(newEntry);
-        if (isEmpty()) {
-            firstNode = newNode;
-            lastNode = newNode;
-        }
-
         //插在头结点
-        else if (givenPosition == 1) {
+        if (givenPosition == 1) {
             newNode.setNextNode(newNode);
             firstNode = newNode;
-            //插在尾结点
-        } else if (givenPosition == numberOfEntries + 1) {
-            lastNode.setNextNode(newNode);
-            lastNode = newNode;
+
         } else {
             //元素添加在中间位置
             Node nodeBefore = getNodeAt(givenPosition - 1);
@@ -163,20 +136,15 @@ public class LListWithTail<T> implements ListInterface<T> {
             //删除的是头结点
             result = firstNode.getData();
             firstNode = firstNode.getNextNode();
-            //判断如果当前链表只有一个结点
-            if (numberOfEntries == 1)
-                lastNode = null;
         } else {
             //删除的是非头结点
             Node nodeBefore = getNodeAt(givenPosition - 1);
             Node nodeRemove = nodeBefore.getNextNode();
             //注意返回的数据不是结点!!!
+            result = nodeRemove.getData();
             Node nodeAfter = nodeRemove.getNextNode();
             nodeBefore.setNextNode(nodeAfter);
-            result = nodeRemove.getData();
-            // nodeRemove = null;
-            if (givenPosition == numberOfEntries)
-                lastNode = nodeBefore;
+            nodeRemove = null;
 
         }
         numberOfEntries--;
@@ -293,14 +261,26 @@ public class LListWithTail<T> implements ListInterface<T> {
     @Override
     public boolean isEmpty() {
         boolean result;
-        if ((firstNode == null) && (lastNode == null)) {
+        if (numberOfEntries == 0)
             result = true;
-        }
-        result = false;
+        else
+            result = false;
         return result;
 
         //return numberOfEntries == 0;
     }
+
+
+    @Override
+    public Iterator<T> getIterator() {
+        return null;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
 
 
     private class Node {
