@@ -4,6 +4,7 @@ import com.mason.ATD.List.LList;
 import org.w3c.dom.Node;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * 内部类迭代器的实现
@@ -273,15 +274,45 @@ public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T> {
 
     @Override
     public Iterator<T> getIterator() {
-        return null;
+        return iterator();
     }
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new IteratorForLinkedList();
     }
 
+    private class IteratorForLinkedList implements Iterator<T> {
+        private LinkedListWithIterator.Node nextNode;
 
+        private IteratorForLinkedList() {
+            nextNode = firstNode;
+        }
+
+
+        @Override
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        @Override
+        public T next() {
+            T result;
+            if (hasNext()){
+                result = (T) nextNode.getData();
+                nextNode = this.nextNode.getNextNode();
+
+            }else
+                throw  new NoSuchElementException("Illegal call to next(); "+ "iterator is after" +
+                        "end of list.");
+            return result;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("remove() is not supported by this iterator");
+        }
+    }
 
     private class Node {
         private T data;
