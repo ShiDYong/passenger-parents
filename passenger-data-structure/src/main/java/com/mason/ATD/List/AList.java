@@ -1,7 +1,10 @@
 package com.mason.ATD.List;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 数组实现线性表
@@ -75,7 +78,7 @@ public class AList<T> implements ListInterface<T> {
          * 方法调用时它不调用 makeRoom。
          */
         //通常数组的下标都是从0开始的，这是因为初始化的为0，比较方便，但是为了方便阅读只要在数组插入的
-        //的时候把数据放在第一位，0位就属于空的状态，方便阅读也是可以的。
+        //的时候把数据放在第1位，0位就属于空的状态，方便阅读也是可以的。
         add(numberOfEntries + 1, newEntry);
 
     }
@@ -179,6 +182,7 @@ public class AList<T> implements ListInterface<T> {
 
         int removeIndex = givenPosition;
         for (int index = removeIndex; index < numberOfEntries; index++) {
+            //将数组元素从给定位置向前挪动
             list[index] = list[index + 1];
 
         }
