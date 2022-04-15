@@ -1,6 +1,5 @@
 package com.mason.ATD.chapter06;
 
-import java.util.AbstractQueue;
 
 /**
  * 队列的实现类的测试方法
@@ -32,14 +31,38 @@ public class QueueTestDemo {
 
         }
         String delete = arrayQueue.dequeue();
-        System.out.println("队列的删除头结点："+delete);
+        System.out.println("队列的删除头结点：" + delete);
         String front1 = arrayQueue.getFront();
-        System.out.println("获取队列的头结点："+front1);
+        System.out.println("获取队列的头结点：" + front1);
         System.out.println(arrayQueue.isEmpty());
         arrayQueue.clear();
 
 
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>测试通过单项循环列表实现的队列<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        TwoPartCircularLinkedQueue<String> circularLinkedQueue = new TwoPartCircularLinkedQueue<>();
+        circularLinkedQueue.enqueue("BMW");
+        circularLinkedQueue.enqueue("Toyota");
+        System.out.println(circularLinkedQueue.getFront());
+        System.out.println(circularLinkedQueue.dequeue());
+        System.out.println(circularLinkedQueue.isEmpty());
+        circularLinkedQueue.clear();
+        System.out.println(circularLinkedQueue);
 
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>测试通过双向循环列表实现的双端队列<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        LinkedDeque<String> deque = new LinkedDeque<>();
+        deque.addToFront("北京市");
+        deque.addToBack("上海市");
+        deque.addToBack("深圳市");
+        deque.addToBack("广州市");
+        System.out.println(deque.getBack());
+        System.out.println(deque.getFront());
+        System.out.println(deque.removeBack());
+        System.out.println(deque.removeFront());
+        System.out.println(deque.isEmpty());
+        deque.clear();
+        deque.addToBack(null);
+        System.out.println(deque.getBack());
 
 
     }

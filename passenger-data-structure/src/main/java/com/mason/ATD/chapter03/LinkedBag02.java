@@ -151,6 +151,7 @@ public final class LinkedBag02<T> implements BagInterface<T>
     /** Tests whether this bag contains a given entry.
         @param anEntry  The entry to locate.
         @return  True if the bag contains anEntry, or false otherwise. */
+    @Override
     public boolean contains(T anEntry)
     {
         boolean found = false;
