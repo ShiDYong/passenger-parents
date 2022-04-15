@@ -1,4 +1,4 @@
-package com.mason.ATD.chapter07.recursive;
+package com.mason.ATD.recursive;
 /**
  * 链表常用的递归
  *

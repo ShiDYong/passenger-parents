@@ -1,8 +1,5 @@
-package com.mason.ATD.chapter07.recursive;
+package com.mason.ATD.recursive;
 
-import com.mason.ATD.chapter02.ArrayBag01;
-import com.mason.ATD.chapter02.BagInterface;
-import com.mason.ATD.chapter03.LinedBag01;
 import com.mason.ATD.chapter05.LinkedStack;
 import com.mason.ATD.chapter05.StackInterface;
 

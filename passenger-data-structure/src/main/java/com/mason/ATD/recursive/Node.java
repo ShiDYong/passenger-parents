@@ -1,6 +1,6 @@
 // @author Frank M. Carrano, Timothy M. Henry
 // @version 5.0
-package com.mason.ATD.chapter07.recursive;
+package com.mason.ATD.recursive;
 class Node<T>
 {
     private T       data;

@@ -1,4 +1,4 @@
-package com.mason.ATD.chapter07.test;
+package com.mason.ATD.recursive;
 
 /**
  * 递归方法的入门使用

@@ -4,6 +4,7 @@ import com.mason.ATD.List.LList;
 import org.w3c.dom.Node;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 /**
@@ -273,22 +274,21 @@ public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T> {
 
 
     @Override
-    public Iterator<T> getIterator() {
-        return iterator();
-    }
-
-    @Override
     public Iterator<T> iterator() {
         return new IteratorForLinkedList();
-    }
+    } // end iterator
+
+    @Override
+    public Iterator<T> getIterator() {
+        return iterator();
+    } // end getIterator
 
     private class IteratorForLinkedList implements Iterator<T> {
         private LinkedListWithIterator.Node nextNode;
 
         private IteratorForLinkedList() {
-         nextNode = firstNode;
-        }
-
+            nextNode = firstNode;
+        } // end default constructor
 
         @Override
         public boolean hasNext() {
@@ -300,47 +300,55 @@ public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T> {
             T result;
             if (hasNext()) {
                 result = (T) nextNode.getData();
-                nextNode = nextNode.getNextNode();
-
+                nextNode = nextNode.getNextNode(); // Advance iterator
             } else
-                throw new NoSuchElementException("Illegal call to next(); " + "iterator is after" +
-                        "end of list.");
-            return result;
+                throw new NoSuchElementException("Illegal call to next(); " +
+                        "iterator is after end of list.");
+            return result; // Return next entry in iteration
         }
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("remove() is not supported by this iterator");
+            throw new UnsupportedOperationException("remove() is not supported " +
+                    "by this iterator");
         }
-    }
+
+        // Implementations of the methods in the interface Iterator go here.
+
+    } // end IteratorForLinkedList
+
 
     private class Node {
-        private T data;
-        private Node next;
+        private T data; // Entry in list
+        private Node next; // Link to next node
 
-        public Node(T dataPortion) {
-            this(dataPortion, null);
-        }
+        private Node(T dataPortion) {
+            data = dataPortion;
+            next = null;
+        } // end constructor
 
-        public Node(T dataPortion, Node nextNode) {
+        private Node(T dataPortion, Node nextNode) {
             data = dataPortion;
             next = nextNode;
-        }
+        } // end constructor
 
-        public T getData() {
+        private T getData() {
             return data;
-        }
+        } // end getData
 
-        public void setData(T data) {
-            this.data = data;
-        }
+        private void setData(T newData) {
+            data = newData;
+        } // end setData
 
-        public Node getNextNode() {
+        private Node getNextNode() {
             return next;
-        }
+        } // end getNextNode
 
-        public void setNextNode(Node nextNode) {
-            this.next = nextNode;
-        }
-    }
+        private void setNextNode(Node nextNode) {
+            next = nextNode;
+        } // end setNextNode
+    } // end Node
+
+
+
 }
