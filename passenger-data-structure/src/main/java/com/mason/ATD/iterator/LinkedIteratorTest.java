@@ -48,7 +48,7 @@ public class LinkedIteratorTest {
         listIterator.add("英国");
         listIterator.add("法国");
         listIterator.add("德国");
-        listIterator.add("日本");
+
 
         System.out.println("hasnext()   " + listIterator.hasNext());
         System.out.println("hasnext()   " + listIterator.next());
