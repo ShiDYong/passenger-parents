@@ -286,7 +286,7 @@ public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T> {
         private LinkedListWithIterator.Node nextNode;
 
         private IteratorForLinkedList() {
-            nextNode = firstNode;
+         nextNode = firstNode;
         }
 
 
@@ -298,12 +298,12 @@ public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T> {
         @Override
         public T next() {
             T result;
-            if (hasNext()){
+            if (hasNext()) {
                 result = (T) nextNode.getData();
-                nextNode = this.nextNode.getNextNode();
+                nextNode = nextNode.getNextNode();
 
-            }else
-                throw  new NoSuchElementException("Illegal call to next(); "+ "iterator is after" +
+            } else
+                throw new NoSuchElementException("Illegal call to next(); " + "iterator is after" +
                         "end of list.");
             return result;
         }
