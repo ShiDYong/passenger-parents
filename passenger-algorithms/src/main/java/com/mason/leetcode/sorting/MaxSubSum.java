@@ -1,4 +1,4 @@
-package com.mason.leetcode.orders;
+package com.mason.leetcode.sorting;
 
 /**
  * 求最大子序列和问题的求解

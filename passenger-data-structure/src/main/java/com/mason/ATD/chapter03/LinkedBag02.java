@@ -67,6 +67,7 @@ public final class LinkedBag02<T> implements BagInterface<T>
    
     /** Gets the number of entries currently in this bag.
         @return  The integer number of entries currently in the bag. */
+    @Override
     public int getCurrentSize()
     {
         return numberOfEntries;
