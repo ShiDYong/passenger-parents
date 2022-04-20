@@ -1,4 +1,4 @@
-package com.mason.leetcode.orders;
+package com.mason.leetcode.sorting;
 
 /**
  * 实现快速排序

@@ -1,4 +1,4 @@
-package com.mason.leetcode.orders;
+package com.mason.leetcode.sorting;
 
 /**
  * 冒泡算法的实现

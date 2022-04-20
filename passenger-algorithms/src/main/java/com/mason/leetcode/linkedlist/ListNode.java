@@ -1,6 +1,5 @@
 package com.mason.leetcode.linkedlist;
 
-import com.mason.ATD.chapter04.base.List;
 
 /**
  * 结点
