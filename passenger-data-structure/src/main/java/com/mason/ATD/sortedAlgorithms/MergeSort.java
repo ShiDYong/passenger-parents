@@ -1,4 +1,4 @@
-package com.mason.ATD.sorting;
+package com.mason.ATD.sortedAlgorithms;
 
 import javax.management.relation.RelationSupport;
 import java.lang.reflect.Array;

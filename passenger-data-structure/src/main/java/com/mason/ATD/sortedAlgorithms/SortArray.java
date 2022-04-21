@@ -1,4 +1,4 @@
-package com.mason.ATD.sorting;
+package com.mason.ATD.sortedAlgorithms;
 
 /**
  * 选择排序

@@ -1,4 +1,4 @@
-package com.mason.ATD.sorting;
+package com.mason.ATD.sortedAlgorithms;
 
 import com.mason.ATD.chapter06.priority.PriorityQueue;
 
