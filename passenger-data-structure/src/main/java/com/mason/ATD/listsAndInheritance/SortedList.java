@@ -104,6 +104,7 @@ public class SortedList<T extends Comparable<? super T>> extends LList<T> implem
     @param newEntry     The object to be added as a new entry.
     @throws  IndexOutOfBoundsException if either
              newPosition < 1 or newPosition > getLength() + 1. */
+    @Override
     public void add(int newPosition, T newEntry)
     {   
         throw new UnsupportedOperationException("Illegal attempt to add at a " + 
@@ -119,6 +120,7 @@ public class SortedList<T extends Comparable<? super T>> extends LList<T> implem
     @return  The original entry that was replaced.
     @throws  IndexOutOfBoundsException if either
          givenPosition < 1 or givenPosition > getLength(). */
+    @Override
     public T replace(int givenPosition, T newEntry)
     {
         throw new UnsupportedOperationException("Illegal attempt to replace an " + 

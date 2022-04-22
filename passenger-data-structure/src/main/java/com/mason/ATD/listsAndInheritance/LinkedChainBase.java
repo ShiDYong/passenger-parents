@@ -35,7 +35,7 @@ public abstract class LinkedChainBase<T> {
         return result;
     }
 
-    @Override
+
     public T[] toArray() {
         // The cast is safe because the new array contains null entries.
         @SuppressWarnings("unchecked")
