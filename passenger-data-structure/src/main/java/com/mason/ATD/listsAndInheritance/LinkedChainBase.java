@@ -1,4 +1,5 @@
 package com.mason.ATD.listsAndInheritance;
+
 /**
  * 将结点链表的处理设置为抽象基类
  *
@@ -47,7 +48,7 @@ public abstract class LinkedChainBase<T> {
         //OR for (int index = 0; index < numberOfEntries; index++)
         {
             result[index] = currentNode.getData();
-            currentNode.getNextNode();
+            currentNode = currentNode.getNextNode();
             index++;
         } // end for
         return result;
