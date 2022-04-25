@@ -25,8 +25,9 @@ public class MapTestDemo {
         System.out.println(mapArray.contains("Tina"));
         //测试遍历获取Key和value
         Iterator<String> keyIterator = mapArray.getKeyIterator();
-        System.out.println("测试遍历获取key " + keyIterator.hasNext());
-        System.out.println("测试获取遍历的值" + keyIterator.next());
+        Iterator<String> valueIterator2 = mapArray.getValueIterator();
+        while (keyIterator.hasNext())
+            System.out.println(keyIterator.next()+"," + valueIterator2.next());
         //   keyIterator.remove();
 
 
@@ -35,12 +36,16 @@ public class MapTestDemo {
         //System.out.println("测试获取遍历value "+ValueIterator.next());
         //ValueIterator.remove();
 
-        System.out.println("<<<<<<<<<<<<<<<<<<测试有序的字典>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("<<<<<<<<<<<<<<<<<<测试数组实现的有序的字典>>>>>>>>>>>>>>>>>>>>>");
         DictionaryInterface<Integer, String> orderDit = new SortedArrayDictionary<>();
         orderDit.add(4, "hello");
         orderDit.add(3, "Java");
         orderDit.add(2, "C/C++");
         orderDit.add(1, "Python");
+        Iterator<Integer> keyIterator2 = orderDit.getKeyIterator();
+        Iterator<String> valueIterator1 = orderDit.getValueIterator();
+        while (keyIterator2.hasNext())
+            System.out.println(keyIterator2.next() + ","+ valueIterator1.next());
 //
 //        System.out.println(orderDit.remove(2));
 //        Iterator<Integer> keyIterator1 = orderDit.getKeyIterator();
@@ -48,13 +53,19 @@ public class MapTestDemo {
 //            System.out.println(keyIterator1.next());
 //        }
         System.out.println("《《《《《《《《《《《《《《《《测试有序链表实现的字典》》》》》》》》》》》》");
-        DictionaryInterface<Integer, String> linkedMap = new SortedLinkedDictionary<>();
-        linkedMap.add(2,"Apple");
-        linkedMap.add(5,"Amazon");
-        linkedMap.add(3,"Micsoft");
-        linkedMap.add(1,"Google");
+        DictionaryInterface<String, String> linkedMap = new SortedLinkedDictionary<>();
+        linkedMap.add("c","Apple");
+        linkedMap.add("a","Amazon");
+        linkedMap.add("b","Micsoft");
+        linkedMap.add("d","Google");
+        Iterator<String> keyIterator1 = linkedMap.getKeyIterator();
+        Iterator<String> valueIterator = linkedMap.getValueIterator();
+        //循环按键-值对对形式显示字典中对每一页
+        while (keyIterator1.hasNext())
+            System.out.println(keyIterator1.next()+"," + valueIterator.next());
 
-        System.out.println(linkedMap.remove(1));
+
+        // System.out.println(linkedMap.remove(1));
 
         //测试删除的项
         // System.out.println(mapArray.remove("Tina"));

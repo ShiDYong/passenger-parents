@@ -40,8 +40,15 @@ public class SortedLinkedDictionary<K extends Comparable<? super K>, V>
         V result = null;
         if (key == null || value == null)
             throw new IllegalArgumentException("Cannot add null to dictionary.");
-        Node beforeNode = getBeforeNode(key);
+       // Node beforeNode = getBeforeNode(key);
+        //注意这里不能单独调用getBeforeNode()方法，因为该方法只返回一个beforeNode而
+        //接下来的方法中需要用到currentNode,拆分方法就currentNode = firstNode就会出问题
         Node currentNode = firstNode;
+        Node beforeNode = null;
+        while ((currentNode != null) && key.compareTo(currentNode.getKey())>0){
+            beforeNode = currentNode;
+            currentNode = currentNode.getNextNode();
+        }
         if ((currentNode != null) && key.equals(currentNode.getKey())) {
             //当前结点中已经存在对应的key,进行替换值操作
             result = currentNode.getValue();
