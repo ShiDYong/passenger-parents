@@ -1,4 +1,4 @@
-package com.mason.ATD.hash;
+package com.mason.ATD.hashing;
 
 /**
  * @author Mason

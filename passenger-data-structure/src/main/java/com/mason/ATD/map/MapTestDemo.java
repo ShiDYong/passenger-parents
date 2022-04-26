@@ -67,6 +67,7 @@ public class MapTestDemo {
 
         // System.out.println(linkedMap.remove(1));
 
+
         //测试删除的项
         // System.out.println(mapArray.remove("Tina"));
         //System.out.println(mapArray.remove(null));
