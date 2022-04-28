@@ -5,11 +5,11 @@ package com.mason.ATD.tree.treePackage;
  * @Description TODO
  * @date 2022/4/27 16:45
  */
-public interface ExpressionTreeInterface {
+public interface ExpressionTreeInterface extends BinaryTreeInterface<String> {
 
     /**
      * Computes the values of the expression in this tree.
-     * @return
+     * @return  The value of the expression.
      */
     public double evaluate();
 }
