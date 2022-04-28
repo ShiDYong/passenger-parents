@@ -8,7 +8,7 @@ package com.mason.ATD.tree.treePackage;
 public class EmptyTreeException extends NullPointerException {
 
 public EmptyTreeException(){
-    this("The root node is emtpy");
+    this("The root node is empty");
 }
 
 public EmptyTreeException(String message){

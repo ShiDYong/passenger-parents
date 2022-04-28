@@ -9,5 +9,6 @@ package com.mason.ATD.tree.treePackage;
  */
 public interface BinaryTreeInterface<T> extends TreeInterface<T>,TreeIteratorInterface<T> {
     public void setRootData(T rootData);
-    public void setTree(T rootData, BinaryTreeInterface<T> leftTree,BinaryTreeInterface<T> rightTree);
+    //将参数中所给的已有的二叉树对象，组合成一棵新树。它形成的树中，根结点含有诶定的数据对象，两颗给定的二叉树是其子树
+    public void setTree(T rootData, BinaryTreeInterface<T> leftTree, BinaryTreeInterface<T> rightTree);
 }

@@ -2,6 +2,8 @@ package com.mason.ATD.tree.treePackage;
 
 import com.mason.ATD.chapter05.LinkedStack;
 import com.mason.ATD.chapter05.StackInterface;
+import com.mason.ATD.chapter06.LinkedQueue;
+import com.mason.ATD.chapter06.QueueInterface;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -47,7 +49,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
             if (rightTree != leftTree)
                 root.setRightChild(rightTree.root);
             else
-                root.setRightChild(rightTree.root);
+                root.setRightChild(rightTree.root.copy());
         }
         if ((leftTree != null) && (leftTree != this))
             leftTree.clear();
@@ -175,14 +177,46 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
         @Override
         public void remove() {
-            Iterator.super.remove();
+            throw new UnsupportedOperationException("BinaryTree iterator don't support this operation.");
         }
     }
 
     @Override
     public Iterator<T> getPostorderIterator() {
-        return null;
+        return new PostorderIterator();
     }
+
+    //实现后序遍历
+    public void iteratorPostorderTravers() {
+        StackInterface<BinaryNode<T>> nodeStack = new LinkedStack<>();
+        BinaryNode<T> currentNode = root;
+        BinaryNode<T> nextNode = null;
+        BinaryNode<T> prev = null;
+        nodeStack.push(currentNode);
+        while (!nodeStack.isEmpty() || (currentNode != null)) {
+            currentNode = nodeStack.pop();
+
+            //Go up the tree from left node, if the child is right push it onto
+            //stack otherwise process parent and pop stack
+            if (prev == null || prev.getLeftChild() == currentNode || prev.getRightChild() == currentNode) {
+                if (currentNode.getLeftChild() != null)
+                    nodeStack.push(currentNode.getLeftChild());
+                else if (currentNode.getRightChild() != null)
+                    nodeStack.push(currentNode.getRightChild());
+                else
+                    nextNode = nodeStack.pop();
+            } else if (currentNode.getLeftChild() == prev) {
+                if (currentNode.getRightChild() != null)
+                    nodeStack.push(currentNode.getRightChild());
+                else
+                    nextNode = nodeStack.pop();
+
+            } else if (currentNode.getRightChild() == prev)
+                nextNode = nodeStack.pop();
+            prev = currentNode;
+        }
+    }
+
 
     @Override
     public Iterator<T> getInorderIterator() {
@@ -201,6 +235,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
             }//Visit leftmost node, then traverse its right subtree
             if (!nodeStack.isEmpty()) {
                 BinaryNode<T> nextNode = nodeStack.pop();
+                System.out.println(nextNode.getData());
                 currentNode = nextNode.getRightChild();
             }
         }
@@ -226,10 +261,89 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     }
 
+    private class PostorderIterator implements Iterator<T> {
+
+        private StackInterface<BinaryNode<T>> nodeStack;
+        private BinaryNode<T> currentNode;
+        private BinaryNode<T> prev;
+
+        public PostorderIterator() {
+            nodeStack = new LinkedStack<>();
+            currentNode = root;
+            prev = null;
+            nodeStack.push(currentNode);
+        } // end default constructor
+
+        @Override
+        public boolean hasNext() {
+            return !nodeStack.isEmpty() || (currentNode != null);
+        } // end hasNext
+
+        @Override
+        public T next() {
+            BinaryNode<T> nextNode = null;
+
+            currentNode = nodeStack.peek();
+
+            // Go down the tree in search of a leaf an if so process it
+            // and pop stack otherwise move down
+            if (prev == null || prev.getLeftChild() == currentNode ||
+                    prev.getRightChild() == currentNode) {
+                if (currentNode.getLeftChild() != null)
+                    nodeStack.push(currentNode.getLeftChild());
+                else if (currentNode.getRightChild() != null)
+                    nodeStack.push(currentNode.getRightChild());
+                else
+                    nextNode = nodeStack.pop();
+
+                // Go up the tree from left node, if the child is right push it onto
+                // stack otherwise process parent and pop stack
+            } else if (currentNode.getLeftChild() == prev) {
+                if (currentNode.getRightChild() != null)
+                    nodeStack.push(currentNode.getRightChild());
+                else
+                    nextNode = nodeStack.pop();
+
+                // go up the tree from right node and after coming back
+                // from right node process parent and pop stack
+            } else if (currentNode.getRightChild() == prev)
+                nextNode = nodeStack.pop();
+            prev = currentNode;
+            return nextNode.getData();
+        } // end next
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        } // end remove void remove() {
+    } // end remove
+    // end PostorderIterator
+
     @Override
     public Iterator<T> getLevelOrderIterator() {
-        return null;
+        return new LevelOrderIterator();
     }
+
+    public void iterativeLevelOrderTraverse() {
+        QueueInterface<BinaryNode<T>> nodeQueue = new LinkedQueue<>();
+        BinaryNode<T> currentNode = root;
+        BinaryNode<T> prevNode = null;
+        while (!nodeQueue.isEmpty() || (currentNode != null)) {
+            if (currentNode != null)
+                nodeQueue.enqueue(currentNode);
+            if (prevNode != null && prevNode.getRightChild() != null)
+                nodeQueue.enqueue(prevNode.getRightChild());
+            // Visit getLeftChild()most node, then traverse its getRightChild() subtree
+            if (!nodeQueue.isEmpty()) {
+                BinaryNode<T> nextNode = nodeQueue.dequeue();
+                assert nextNode != null; // Since nodeQueue was not empty
+                // before the pop
+                System.out.println(nextNode.getData());
+                prevNode = nextNode;
+                currentNode = nextNode.getLeftChild();
+            } // end if
+        } // end while
+    } // end iterative
 
     private class InorderIterator implements Iterator<T> {
         private StackInterface<BinaryNode<T>> nodeStack;
@@ -268,4 +382,48 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
             throw new UnsupportedOperationException();
         }
     }
+
+    private class LevelOrderIterator implements Iterator<T> {
+        private QueueInterface<BinaryNode<T>> nodeQueue;
+        private BinaryNode<T> currentNode;
+        private BinaryNode<T> prevNode;
+
+        public LevelOrderIterator() {
+            nodeQueue = new LinkedQueue<>();
+            currentNode = root;
+            prevNode = null;
+        } // end default constructor
+
+        @Override
+        public boolean hasNext() {
+            return !nodeQueue.isEmpty() || (currentNode != null);
+        } // end hasNext
+
+        @Override
+        public T next() {
+            BinaryNode<T> nextNode = null;
+
+            if (currentNode != null)
+                nodeQueue.enqueue(currentNode);
+            if (prevNode != null && prevNode.getRightChild() != null)
+                nodeQueue.enqueue(prevNode.getRightChild());
+            // Visit getLeftChild()most node, then traverse its getRightChild() subtree
+            if (!nodeQueue.isEmpty()) {
+                nextNode = nodeQueue.dequeue();
+                assert nextNode != null; // Since nodeQueue was not empty
+                // before the pop
+//                System.out.println(nextNode.getData());
+                prevNode = nextNode;
+                currentNode = nextNode.getLeftChild();
+            } else
+                throw new NoSuchElementException();
+
+            return nextNode.getData();
+        } // end next
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        } // end remove
+    } // end Level
 }
