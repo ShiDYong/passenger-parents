@@ -8,6 +8,7 @@ package com.mason.ATD.tree.treePackage;
 public class ExpressionTree extends BinaryTree<String> implements ExpressionTreeInterface {
 
     public ExpressionTree() {
+
     }
 
     @Override

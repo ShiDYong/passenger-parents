@@ -8,21 +8,21 @@ package com.mason.ATD.tree.treePackage;
  * 的客户隐藏。
  * @date 2022/4/27 14:04
  */
-class BinaryNode<T> {
+class BinaryNode02<T extends Copyable> implements Cloneable {
     private T data;
-    private BinaryNode<T> leftChild;
-    private BinaryNode<T> rightChild;
+    private BinaryNode02<T> leftChild;
+    private BinaryNode02<T> rightChild;
 
-    public BinaryNode() {
+    public BinaryNode02() {
         this(null);
 
     }
 
-    public BinaryNode(T data) {
+    public BinaryNode02(T data) {
         this(data, null, null);
     }
 
-    public BinaryNode(T data, BinaryNode<T> newLeftChild, BinaryNode<T> newRightChild) {
+    public BinaryNode02(T data, BinaryNode02<T> newLeftChild, BinaryNode02<T> newRightChild) {
         this.data = data;
         this.leftChild = newLeftChild;
         this.rightChild = newRightChild;
@@ -51,7 +51,7 @@ class BinaryNode<T> {
      *
      * @return
      */
-    public BinaryNode<T> getLeftChild() {
+    public BinaryNode02<T> getLeftChild() {
         return leftChild;
     }
 
@@ -60,7 +60,7 @@ class BinaryNode<T> {
      *
      * @param leftChild A  node that will be the left child.
      */
-    public void setLeftChild(BinaryNode<T> leftChild) {
+    public void setLeftChild(BinaryNode02<T> leftChild) {
         this.leftChild = leftChild;
     }
 
@@ -83,11 +83,11 @@ class BinaryNode<T> {
         return leftChild != null;
     }
 
-    public BinaryNode<T> getRightChild() {
+    public BinaryNode02<T> getRightChild() {
         return rightChild;
     }
 
-    public void setRightChild(BinaryNode<T> rightChild) {
+    public void setRightChild(BinaryNode02<T> rightChild) {
         this.rightChild = rightChild;
     }
 
@@ -122,7 +122,7 @@ class BinaryNode<T> {
     }
 
     //以一个结点作为根的树的高度，等于1--结点本身--再加上结点最高子树的高度
-    private int getHeight(BinaryNode<T> node) {
+    private int getHeight(BinaryNode02<T> node) {
         int height = 0;
         if (node != null)
             height = 1 + Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild()));
@@ -136,8 +136,8 @@ class BinaryNode<T> {
      *
      * @return
      */
-    public BinaryNode<T> copy() {
-        BinaryNode<T> newRoot = new BinaryNode<>(data);
+    public BinaryNode02<T> copy() {
+        BinaryNode02<T> newRoot = new BinaryNode02<>(data);
         if (leftChild != null)
             newRoot.setLeftChild(leftChild.copy());//执行子树的前序遍历
         if (rightChild != null)
@@ -145,4 +145,26 @@ class BinaryNode<T> {
         return newRoot;
     }
 
+    @Override
+    public Object clone() {
+
+        BinaryNode02<T> theCopy = null;
+
+        try {
+            @SuppressWarnings("unchecked")
+            BinaryNode02<T> temp = (BinaryNode02<T>) super.clone();
+            theCopy = temp;
+        } catch (CloneNotSupportedException e) {
+            throw new Error("BinaryNode cannot clone: " + e.toString());
+        }
+        // Clone the data
+        theCopy.data = (T) data.clone();
+        // Clone the node's two children
+        if (leftChild != null)
+            theCopy.leftChild = (BinaryNode02<T>) leftChild.clone();
+        if (rightChild != null)
+            theCopy.rightChild = (BinaryNode02<T>) rightChild.clone();
+
+        return theCopy;
+    }
 }

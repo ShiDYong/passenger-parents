@@ -13,19 +13,19 @@ import java.util.NoSuchElementException;
  * @Description A class that implements the ATD binary tree.
  * @date 2022/4/27 14:49
  */
-public class BinaryTree<T> implements BinaryTreeInterface<T> {
-    private BinaryNode<T> root;
+public class BinaryTree02<T extends Copyable> implements BinaryTreeInterface<T> {
+    private BinaryNode02<T> root;
 
 
-    public BinaryTree() {
+    public BinaryTree02() {
         root = null;
     }
 
-    public BinaryTree(T rootData) {
-        root = new BinaryNode<>(rootData);
+    public BinaryTree02(T rootData) {
+        root = new BinaryNode02<>(rootData);
     }
 
-    public BinaryTree(T root, BinaryTree<T> leftTree, BinaryTree<T> rightTree) {
+    public BinaryTree02(T root, BinaryTree02<T> leftTree, BinaryTree02<T> rightTree) {
         initializeTree(root, leftTree, rightTree);
     }
 
@@ -35,8 +35,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     }
 
-    private void initializeTree(T rootData, BinaryTree<T> leftTree, BinaryTree<T> rightTree) {
-        root = new BinaryNode<>(rootData);
+    private void initializeTree(T rootData, BinaryTree02<T> leftTree, BinaryTree02<T> rightTree) {
+        root = new BinaryNode02<>(rootData);
         //if ((leftTree != null) && !leftTree.isEmpty())
         //    root.setLeftChild(leftTree.root.copy());
         // if ((rightTree !=null) &&!rightTree.isEmpty())
@@ -49,7 +49,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
             if (rightTree != leftTree)
                 root.setRightChild(rightTree.root);
             else
-                root.setRightChild(rightTree.root.copy());
+                root.setRightChild((BinaryNode02<T>) rightTree.root.clone());
         }
         if ((leftTree != null) && (leftTree != this))
             leftTree.clear();
@@ -60,7 +60,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     @Override
     public void setTree(T rootData, BinaryTreeInterface<T> leftTree, BinaryTreeInterface<T> rightTree) {
-        initializeTree(rootData, (BinaryTree<T>) leftTree, (BinaryTree<T>) rightTree);
+        initializeTree(rootData, (BinaryTree02<T>) leftTree, (BinaryTree02<T>) rightTree);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     public int getHeight() {
         int height = 0;
         if (root != null)
-            height = root.getHeight(); //调用BinaryNode类中的方法
+            height = root.getHeight(); //调用BinaryNode02类中的方法
         return height;
     }
 
@@ -97,11 +97,11 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         root = null;
     }
 
-    protected void setRootNode(BinaryNode<T> rootNode) {
+    protected void setRootNode(BinaryNode02<T> rootNode) {
         root = rootNode;
     }
 
-    protected BinaryNode<T> getRootNode() {
+    protected BinaryNode02<T> getRootNode() {
         return root;
     }
 
@@ -114,7 +114,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     //对于递归处理子树的方法，它需要子树的根作为参数，为了让递归方法是私有的
     // 且从一个无参数的共有方法来调用它。
     //为了简单起见，我们只显示数据，尽管ADT的类一般不应执行输入和输出。
-    private void inorderTraverse(BinaryNode<T> node) {
+    private void inorderTraverse(BinaryNode02<T> node) {
         if (node != null) {
             inorderTraverse(node.getLeftChild());
             System.out.println(node.getData());
@@ -129,7 +129,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         preorderTraverse(root);
     }
 
-    private void preorderTraverse(BinaryNode<T> node) {
+    private void preorderTraverse(BinaryNode02<T> node) {
         if (node != null) {
             System.out.println(node.getData());
             preorderTraverse(node.getLeftChild());
@@ -143,8 +143,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     }
 
     private class PreorderIterator implements Iterator<T> {
-        private StackInterface<BinaryNode<T>> nodeStack;
-        private BinaryNode<T> currentNode;
+        private StackInterface<BinaryNode02<T>> nodeStack;
+        private BinaryNode02<T> currentNode;
 
         public PreorderIterator() {
             nodeStack = new LinkedStack<>();
@@ -158,7 +158,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
         @Override
         public T next() {
-            BinaryNode<T> nextNode = null;
+            BinaryNode02<T> nextNode = null;
             if (currentNode != null)
                 nodeStack.push(currentNode);
             // Visit leftmost node, then traverse its right subtree
@@ -188,10 +188,10 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     //实现后序遍历
     public void iteratorPostorderTravers() {
-        StackInterface<BinaryNode<T>> nodeStack = new LinkedStack<>();
-        BinaryNode<T> currentNode = root;
-        BinaryNode<T> nextNode = null;
-        BinaryNode<T> prev = null;
+        StackInterface<BinaryNode02<T>> nodeStack = new LinkedStack<>();
+        BinaryNode02<T> currentNode = root;
+        BinaryNode02<T> nextNode = null;
+        BinaryNode02<T> prev = null;
         nodeStack.push(currentNode);
         while (!nodeStack.isEmpty() || (currentNode != null)) {
             currentNode = nodeStack.pop();
@@ -225,8 +225,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     //中序遍历的迭代方法,通过迭代器iterator的hasNext(),next()进行逻辑的分解
     public void iteratorInorderTraverse() {
-        StackInterface<BinaryNode<T>> nodeStack = new LinkedStack<>();
-        BinaryNode<T> currentNode = root;
+        StackInterface<BinaryNode02<T>> nodeStack = new LinkedStack<>();
+        BinaryNode02<T> currentNode = root;
         while (!nodeStack.isEmpty() || (currentNode != null)) {
             // Find leftmost mode with no left child
             while (currentNode != null) {
@@ -234,7 +234,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
                 currentNode = currentNode.getLeftChild();
             }//Visit leftmost node, then traverse its right subtree
             if (!nodeStack.isEmpty()) {
-                BinaryNode<T> nextNode = nodeStack.pop();
+                BinaryNode02<T> nextNode = nodeStack.pop();
                 System.out.println(nextNode.getData());
                 currentNode = nextNode.getRightChild();
             }
@@ -242,13 +242,13 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     }
 
     public void iteratorPreorderTraverse() {
-        StackInterface<BinaryNode<T>> nodeStack = new LinkedStack<>();
-        BinaryNode<T> currentNode = root;
+        StackInterface<BinaryNode02<T>> nodeStack = new LinkedStack<>();
+        BinaryNode02<T> currentNode = root;
         while (!nodeStack.isEmpty() || (currentNode != null)) {
             if (currentNode != null)
                 nodeStack.push(currentNode);
             if (!nodeStack.isEmpty()) {
-                BinaryNode<T> nextNode = nodeStack.pop();
+                BinaryNode02<T> nextNode = nodeStack.pop();
                 assert nextNode != null;
                 System.out.println(nextNode.getData());
                 currentNode = nextNode.getRightChild();
@@ -263,9 +263,9 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     private class PostorderIterator implements Iterator<T> {
 
-        private StackInterface<BinaryNode<T>> nodeStack;
-        private BinaryNode<T> currentNode;
-        private BinaryNode<T> prev;
+        private StackInterface<BinaryNode02<T>> nodeStack;
+        private BinaryNode02<T> currentNode;
+        private BinaryNode02<T> prev;
 
         public PostorderIterator() {
             nodeStack = new LinkedStack<>();
@@ -279,7 +279,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         } // end hasNext
 
         public T next() {
-            BinaryNode<T> nextNode = null;
+            BinaryNode02<T> nextNode = null;
 
             currentNode = nodeStack.peek();
 
@@ -323,9 +323,9 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     }
 
     public void iterativeLevelOrderTraverse() {
-        QueueInterface<BinaryNode<T>> nodeQueue = new LinkedQueue<>();
-        BinaryNode<T> currentNode = root;
-        BinaryNode<T> prevNode = null;
+        QueueInterface<BinaryNode02<T>> nodeQueue = new LinkedQueue<>();
+        BinaryNode02<T> currentNode = root;
+        BinaryNode02<T> prevNode = null;
         while (!nodeQueue.isEmpty() || (currentNode != null)) {
             if (currentNode != null)
                 nodeQueue.enqueue(currentNode);
@@ -333,7 +333,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
                 nodeQueue.enqueue(prevNode.getRightChild());
             // Visit getLeftChild()most node, then traverse its getRightChild() subtree
             if (!nodeQueue.isEmpty()) {
-                BinaryNode<T> nextNode = nodeQueue.dequeue();
+                BinaryNode02<T> nextNode = nodeQueue.dequeue();
                 assert nextNode != null; // Since nodeQueue was not empty
                 // before the pop
                 System.out.println(nextNode.getData());
@@ -344,8 +344,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     } // end iterative
 
     private class InorderIterator implements Iterator<T> {
-        private StackInterface<BinaryNode<T>> nodeStack;
-        private BinaryNode<T> currentNode;
+        private StackInterface<BinaryNode02<T>> nodeStack;
+        private BinaryNode02<T> currentNode;
 
         public InorderIterator() {
             nodeStack = new LinkedStack<>();
@@ -359,7 +359,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
         @Override
         public T next() {
-            BinaryNode<T> nextNode = null;
+            BinaryNode02<T> nextNode = null;
             //Find leftmost node with no left child
             while (currentNode != null) {
                 nodeStack.push(currentNode);
@@ -382,9 +382,9 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     }
 
     private class LevelOrderIterator implements Iterator<T> {
-        private QueueInterface<BinaryNode<T>> nodeQueue;
-        private BinaryNode<T> currentNode;
-        private BinaryNode<T> prevNode;
+        private QueueInterface<BinaryNode02<T>> nodeQueue;
+        private BinaryNode02<T> currentNode;
+        private BinaryNode02<T> prevNode;
 
         public LevelOrderIterator() {
             nodeQueue = new LinkedQueue<>();
@@ -399,7 +399,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
         @Override
         public T next() {
-            BinaryNode<T> nextNode = null;
+            BinaryNode02<T> nextNode = null;
 
             if (currentNode != null)
                 nodeQueue.enqueue(currentNode);
