@@ -2,7 +2,7 @@ package com.mason.ATD.chapter02;
 
 
 /**
- * 类AarrayBag的框架
+ * 类ArrayBag的框架
  * A class of bags whose entries are stored in
  * a fixed-sized array
  *

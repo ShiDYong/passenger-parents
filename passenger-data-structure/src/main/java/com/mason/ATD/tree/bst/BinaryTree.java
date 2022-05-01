@@ -1,9 +1,11 @@
-package com.mason.ATD.tree.treePackage;
+package com.mason.ATD.tree.bst;
 
 import com.mason.ATD.chapter05.LinkedStack;
 import com.mason.ATD.chapter05.StackInterface;
 import com.mason.ATD.chapter06.LinkedQueue;
 import com.mason.ATD.chapter06.QueueInterface;
+import com.mason.ATD.tree.binaryTree.BinaryTreeInterface;
+import com.mason.ATD.tree.binaryTree.EmptyTreeException;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

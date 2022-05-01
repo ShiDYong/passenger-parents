@@ -1,4 +1,4 @@
-package com.mason.ATD.tree.treePackage;
+package com.mason.ATD.tree.binaryTree;
 
 import com.mason.ATD.chapter05.LinkedStack;
 import com.mason.ATD.chapter05.StackInterface;

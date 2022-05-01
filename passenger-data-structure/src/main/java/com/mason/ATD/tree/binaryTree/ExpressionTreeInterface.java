@@ -1,4 +1,4 @@
-package com.mason.ATD.tree.treePackage;
+package com.mason.ATD.tree.binaryTree;
 
 /**
  * @author Mason
