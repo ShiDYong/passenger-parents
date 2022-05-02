@@ -40,10 +40,10 @@ public class BinarySearchTreeTest {
         //3.删除根结点的项
         searchTree.remove("Megan");
         //1.删除带有两个结点的项
-        searchTree.remove_recursive("Chad");
-        searchTree.remove_recursive("Sean");
+        searchTree.remove("Chad");
+        searchTree.remove("Sean");
         //2.删除最多有一个孩子的结点
-        searchTree.remove_recursive("Maria");
+        searchTree.remove("Maria");
         //3.删除叶子结点
         searchTree.remove("Zak");
 

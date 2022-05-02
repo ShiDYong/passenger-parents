@@ -180,8 +180,11 @@ public class BstDictionary<K extends Comparable<? super K>, V>
         private T value;
 
         public Entry(S key, T value) {
-            key = key;
-            value = value;
+            //注意这里要加上this.key或者参数名写成 S searchKey,不然无法构造生成对象
+            this.key = key;
+            this.value = value;
+           // key = key;
+           // value = value;
         }
 
         @Override
@@ -200,5 +203,14 @@ public class BstDictionary<K extends Comparable<? super K>, V>
         public void setValue(T value) {
             this.value = value;
         }
+
+//        public boolean equals(Entry<S, T> other) {
+//            return key.equals(other.getKey());
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return key + "\t" + value;
+//        }
     }
 }

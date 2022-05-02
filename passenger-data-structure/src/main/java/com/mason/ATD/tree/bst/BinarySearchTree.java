@@ -115,7 +115,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> extends BinaryTre
         if (isEmpty())
             setRootNode(new BinaryNode<>(newEntry));  //插入时是空树
         else
-            result = addEntry02(newEntry);
+            result = addEntry(getRootNode(),newEntry);
 
         return result;
     }
@@ -176,8 +176,8 @@ public class BinarySearchTree<T extends Comparable<? super T>> extends BinaryTre
 
 
     //以下是通过迭代实现的
-    @Override
-    public T remove(T anEntry) {
+    //代码逻辑错误，暂时没有找到地方
+    public T remove_loop(T anEntry) {
         T result = null;
         NodePair pair = findNode(anEntry);
         BinaryNode<T> currentNode = pair.getCurNode();
@@ -230,6 +230,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> extends BinaryTre
         boolean found = false;
         BinaryNode<T> currentNode = getRootNode();
         BinaryNode<T> parentNode = null;
+
         while (!found && (currentNode != null)) {
             T currentEntry = currentNode.getData();
             int comparison = anEntry.compareTo(currentEntry);
@@ -269,7 +270,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> extends BinaryTre
     }
 
     //以下方法是通过递归方法实现的
-    public T remove_recursive(T anEntry) {
+
+    @Override
+    public T remove(T anEntry) {
         ReturnObject oldEntry = new ReturnObject(null);
         BinaryNode<T> newRoot = removeEntry(getRootNode(), anEntry, oldEntry);
         setRootNode(newRoot);
