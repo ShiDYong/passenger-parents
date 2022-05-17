@@ -1,9 +1,7 @@
-package com.mason.io.textFile;
+package com.mason.io;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.RandomAccess;
 import java.util.Scanner;
 
 /**
@@ -18,11 +16,11 @@ public class TestFileTest {
         staff[1] = new Employee("Harry Hacker", 35500, 1989, 10, 1);
         staff[2] = new Employee("Tony Tester", 38000, 1990, 3, 15);
         //将这些记录保存到employee.txt中
-        try (PrintWriter out = new PrintWriter("passenger-java/src/main/java/com/mason/io/textFile/employee.txt", "UTF-8")) {
+        try (PrintWriter out = new PrintWriter("passenger-java/src/main/java/com/mason/io/employee.txt", "UTF-8")) {
             writeData(staff,out);
         }
         //Retrieve all records into a new array
-        try(Scanner in = new Scanner(new FileInputStream("passenger-java/src/main/java/com/mason/io/textFile/employee.txt"),"UTF-8")){
+        try(Scanner in = new Scanner(new FileInputStream("passenger-java/src/main/java/com/mason/io/employee.txt"),"UTF-8")){
             Employee[] newStaff = readData(in);
             for (Employee e : newStaff) {
                 System.out.println(e);

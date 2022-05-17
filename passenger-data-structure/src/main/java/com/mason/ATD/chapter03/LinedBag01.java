@@ -2,7 +2,6 @@ package com.mason.ATD.chapter03;
 
 import com.mason.ATD.chapter02.BagInterface;
 
-import java.util.TreeMap;
 
 /**
  * 链表的实现
@@ -21,6 +20,7 @@ public final class LinedBag01<T> implements BagInterface<T> {
     private int numberOfEntries;
 
     public LinedBag01() {
+
 
         //初始化私有数据域
         firstNode = null;
