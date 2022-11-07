@@ -7,6 +7,9 @@ package com.junit;
  * @create 2022-03-25 10:23
  **/
 public class Largest {
+    public static void main(String[] args) {
+        System.out.println("测试下任务分支分别合并到test、release分支");
+    }
 
     public static int largest(int[] list) {
         int index;
