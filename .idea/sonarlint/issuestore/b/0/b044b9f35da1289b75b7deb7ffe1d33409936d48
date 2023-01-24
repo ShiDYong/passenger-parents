@@ -1,0 +1,39 @@
+
+]
+java:S1854Ã":Remove this useless assignment to local variable "split1".(„©«˜øÿÿÿÿ8¹ø¿ÑÜ0
+W
+java:S1854Â"9Remove this useless assignment to local variable "split".(¤½úä8õ‰ÀÑÜ0
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ë„Æ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Çèï¿
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(•„Âñÿÿÿÿÿ
+N	java:S106'"9Replace this use of System.out or System.err by a logger.(¦Ê
+S	java:S106("9Replace this use of System.out or System.err by a logger.(ôõûşÿÿÿÿ
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(Ï‹‘æøÿÿÿÿ
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(·ƒüìøÿÿÿÿ
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(¯µì°ûÿÿÿÿ
+M	java:S106:"9Replace this use of System.out or System.err by a logger.(‘ØÚ
+S	java:S106<"9Replace this use of System.out or System.err by a logger.(²Àúóûÿÿÿÿ
+S	java:S106="9Replace this use of System.out or System.err by a logger.(‘‰¡ ıÿÿÿÿ
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(ŞÅÆòüÿÿÿÿ
+S	java:S106?"9Replace this use of System.out or System.err by a logger.(†ÛŞıÿÿÿÿ
+M	java:S106@"9Replace this use of System.out or System.err by a logger.(Î™?
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(ÛªÚ‰
+N	java:S106O"9Replace this use of System.out or System.err by a logger.(ÜŠœ˜
+S	java:S106P"9Replace this use of System.out or System.err by a logger.(÷ Öäÿÿÿÿÿ
+N	java:S106Q"9Replace this use of System.out or System.err by a logger.(–‰Ñ
+N	java:S106["9Replace this use of System.out or System.err by a logger.(Æ»•Ì
+S	java:S106\"9Replace this use of System.out or System.err by a logger.(§Ÿš˜şÿÿÿÿ
+N	java:S106]"9Replace this use of System.out or System.err by a logger.(²ÎŸÄ
+M	java:S106^"9Replace this use of System.out or System.err by a logger.(á±¥G
+T	java:S106"9Replace this use of System.out or System.err by a logger.(ûğè¨ıÿÿÿÿ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(»çêæ
+O	java:S106Ÿ"9Replace this use of System.out or System.err by a logger.(„ÿƒ·
+T	java:S106¤"9Replace this use of System.out or System.err by a logger.(¿¼ı…ÿÿÿÿÿ
+O	java:S106º"9Replace this use of System.out or System.err by a logger.(“¶“ê
+T	java:S106»"9Replace this use of System.out or System.err by a logger.(îÿ”úÿÿÿÿ
+H
+java:S1481Â"*Remove this unused "split" local variable.(¤½úä8ü‰ÀÑÜ0
+N
+java:S1481Ã"+Remove this unused "split1" local variable.(„©«˜øÿÿÿÿ8Áø¿ÑÜ0
+^	java:S125Ã"<This block of commented-out lines of code should be removed.(„©«˜øÿÿÿÿ8ÅáÀÑÜ0
+V	java:S106Ó"9Replace this use of System.out or System.err by a logger.(Ë½É÷8ù·ÎÑÜ0

@@ -195,7 +195,7 @@ public class Demo01 {
         final String[] split1 = "a, b ;; c".split("[\\,\\;\\s]+");//{ "a", "b", "c" }
 
         /**
-         * 搜索字符串
+         * 搜索字nbgv 符串
          * 我们获取到Matcher对象后，不需要调用matches()方法（因为匹配整个串肯定返回false），
          * 而是反复调用find()方法，在整个串中搜索能匹配上\\wo\\w规则的子串，并打印出来。这种方式比String.indexOf()要灵活得多
          * 因为我们搜索的规则是3个字符：中间必须是o，前后两个必须是字符[A-Za-z0-9_]。

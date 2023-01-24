@@ -1,0 +1,9 @@
+
+z
+java:S1488“"^Immediately return this expression instead of assigning it to the temporary variable "result".(Ç»Æ´ùÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘ß…åûÿÿÿÿ
+a
+java:S3973ˆ"JUse indentation to denote the code conditionally executed by this "while".(üä¦ž
+V	java:S125#"<This block of commented-out lines of code should be removed.(Â“¤Åþÿÿÿÿ
+o
+java:S3012P"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(€àèÑ
