@@ -1,0 +1,27 @@
+
+P
+java:S18545"5Remove this useless assignment to local variable "c".(®…æüÿÿÿÿ
+P
+java:S18542"5Remove this useless assignment to local variable "b".(®½Ôıÿÿÿÿ
+Q
+java:S1854+";Remove this useless assignment to local variable "myArray".(øıÁ€
+S
+java:S1854#"8Remove this useless assignment to local variable "arrs".(ô– ¦üÿÿÿÿ
+S
+java:S1854!"8Remove this useless assignment to local variable "nums".(Ø«­ıúÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Íäñ–
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Æ”»
+V	java:S125 "<This block of commented-out lines of code should be removed.(å¶£‘şÿÿÿÿ
+D
+java:S1481!")Remove this unused "nums" local variable.(Ø«­ıúÿÿÿÿ
+Q	java:S125""<This block of commented-out lines of code should be removed.(íÂ§…
+D
+java:S1481#")Remove this unused "arrs" local variable.(ô– ¦üÿÿÿÿ
+Q	java:S125("<This block of commented-out lines of code should be removed.(•çÎÊ
+B
+java:S1481+",Remove this unused "myArray" local variable.(øıÁ€
+A
+java:S14812"&Remove this unused "b" local variable.(®½Ôıÿÿÿÿ
+A
+java:S14815"&Remove this unused "c" local variable.(®…æüÿÿÿÿ
+Q	java:S125>"<This block of commented-out lines of code should be removed.(›Ú¼å
