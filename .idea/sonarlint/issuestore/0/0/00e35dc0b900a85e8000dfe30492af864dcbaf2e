@@ -1,0 +1,9 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÓÑûÉúÿÿÿÿ
+P	java:S125"<This block of commented-out lines of code should be removed.(ÑÔ£	
+I
+java:S1144G".Remove this unused private "Node" constructor.(ºËÚµúÿÿÿÿ
+G
+java:S1144W",Remove this unused private "setData" method.(¬ùÎüúÿÿÿÿ
+F
+java:S1144a"0Remove this unused private "setNextNode" method.(Å½†

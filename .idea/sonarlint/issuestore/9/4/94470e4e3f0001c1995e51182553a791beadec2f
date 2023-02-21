@@ -1,0 +1,11 @@
+
+z
+java:S1488µ"^Immediately return this expression instead of assigning it to the temporary variable "result".(Ç»Æ´ùÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(à·îà
+Q	java:S125'"<This block of commented-out lines of code should be removed.(Ñ¤ÏÔ
+Q	java:S125n"<This block of commented-out lines of code should be removed.(©œ­•
+R	java:S125¬"<This block of commented-out lines of code should be removed.(¥Ø
+W	java:S125…"<This block of commented-out lines of code should be removed.(Š‹ÕÙûÿÿÿÿ
+W	java:S125¨"<This block of commented-out lines of code should be removed.(øÒâ‰ûÿÿÿÿ
+p
+java:S3012Â"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(€àèÑ
